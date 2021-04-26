@@ -8,8 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/employeepayroll")
 public class EmployeepayrollController {
 
-    @GetMapping("")
-    public String greeting(){
-        return "Hello";
-    }
+
 }
