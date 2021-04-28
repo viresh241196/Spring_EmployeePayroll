@@ -1,18 +1,18 @@
 package com.bridgelabz.employeepayrollspring.services;
 
 import com.bridgelabz.employeepayrollspring.DTO.EmployeepayrollDTO;
-import com.bridgelabz.employeepayrollspring.model.EmployeepayrollData;
+import com.bridgelabz.employeepayrollspring.model.Employee;
 
 import java.util.List;
 
 public interface IEmployeepayrollService {
-    List<EmployeepayrollData> getEmployeepayrollData();
+    List<Employee> getEmployeepayrollData();
 
-    EmployeepayrollData getEmployeepayrollDataById(int empId);
+    Employee getEmployeepayrollDataById(int empId);
 
-    EmployeepayrollData createEmployeepayrollData(EmployeepayrollDTO empayrollDTO);
+    Employee createEmployeepayrollData(EmployeepayrollDTO empayrollDTO);
 
-    EmployeepayrollData updateEmployeepayrollData(int empId, EmployeepayrollDTO empayrollDTO);
+    Employee updateEmployeepayrollData(int empId, EmployeepayrollDTO empayrollDTO);
 
-    void deleteEmployeepayrollData(int empId);
+    Boolean deleteEmployeepayrollData(int empId);
 }
