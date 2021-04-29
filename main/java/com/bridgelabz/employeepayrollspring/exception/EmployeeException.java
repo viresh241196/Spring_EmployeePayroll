@@ -12,19 +12,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
-public class EmployeeException extends RuntimeException{
+public class EmployeeException extends RuntimeException {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(
-            MethodArgumentNotValidException exception){
-        List<ObjectError> errorList=exception.getBindingResult().getAllErrors();
-        List<String> errMsg =errorList.stream()
+            MethodArgumentNotValidException exception) {
+        List<ObjectError> errorList = exception.getBindingResult().getAllErrors();
+        List<String> errMsg = errorList.stream()
                 .map(objectError -> objectError.getDefaultMessage())
                 .collect(Collectors.toList());
         ResponseDTO responseDTO =
-                new ResponseDTO("Exception while processing the Rest request",errMsg);
+                new ResponseDTO("Exception while processing the Rest request", errMsg);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
-        }
+    }
 }
 
 //@ControllerAdvice
@@ -41,7 +41,6 @@ public class EmployeeException extends RuntimeException{
 //                HttpStatus.BAD_REQUEST);
 //    }
 //}
-
 
 
 //    private final exceptionType type;
