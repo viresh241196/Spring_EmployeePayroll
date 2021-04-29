@@ -57,18 +57,20 @@ public class EmployeepayrollService implements IEmployeepayrollService {
 
     @Override
     public Employee updateEmployeepayrollData(int empId, EmployeepayrollDTO empayrollDTO) {
-//        Employee employee = this.getEmployeepayrollDataById(empId);
-//        employee.setName(empayrollDTO.getName());
-//        employee.setSalary(empayrollDTO.getSalary());
-//        employeeRepository.save(employee);
+        ResponseDTO emp = this.getEmployeepayrollDataById(empId);
+        Employee employee = (Employee) emp.getData();
+        employee.setName(empayrollDTO.getName());
+        employee.setSalary(empayrollDTO.getSalary());
+        employeeRepository.save(employee);
         return null;
     }
 
     @Override
     public Boolean deleteEmployeepayrollData(int empId) {
         try {
-//            Employee employee = this.getEmployeepayrollDataById(empId);
-//            employeeRepository.save(employee);
+            ResponseDTO emp = this.getEmployeepayrollDataById(empId);
+            Employee employee= (Employee) emp.getData();
+            employeeRepository.delete(employee);
             return true;
         } catch (Exception e) {
             return false;
