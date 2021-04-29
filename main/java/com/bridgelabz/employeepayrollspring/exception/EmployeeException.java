@@ -25,31 +25,11 @@ public class EmployeeException extends RuntimeException {
                 new ResponseDTO("Exception while processing the Rest request", errMsg);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(EmployeeCustomException.class)
+    public ResponseEntity<ResponseDTO> handleEmployeePayrollException(EmployeeCustomException exception){
+        ResponseDTO responseDTO =
+                new ResponseDTO("Exception while processing the Rest request",exception.getMessage());
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
+    }
 }
-
-//@ControllerAdvice
-//public class EmployeeControllerValidation extends ResponseEntityExceptionHandler {
-//
-//    @Override
-//    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-//                                                                  HttpHeaders headers,
-//                                                                  HttpStatus status,
-//                                                                  WebRequest request) {
-//        String errorMsg = ex.getBindingResult().getAllErrors().get(0).getDefaultMessage();
-//        return new ResponseEntity<>(
-//                new ResponseDTO(null, errorMsg),
-//                HttpStatus.BAD_REQUEST);
-//    }
-//}
-
-
-//    private final exceptionType type;
-//
-//    public EmployeeException(exceptionType type,String message) {
-//        super(message);
-//        this.type = type;
-//    }
-//
-//public enum exceptionType {
-//    EMPLOYEE_NOT_FOUND,
-//}
