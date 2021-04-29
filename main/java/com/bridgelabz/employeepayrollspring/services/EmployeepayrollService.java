@@ -53,7 +53,7 @@ public class EmployeepayrollService implements IEmployeepayrollService{
     public Boolean deleteEmployeepayrollData(int empId) {
         try {
             Employee employee = this.getEmployeepayrollDataById(empId);
-            employeeRepository.save(employee);
+            employeeRepository.delete(employee);
             return true;
         }catch(Exception e) {
             return false;
