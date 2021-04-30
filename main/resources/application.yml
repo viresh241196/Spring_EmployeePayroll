@@ -1,0 +1,11 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: ${environment}
+#  datasource:
+#    name: ${username}
+#    password: ${password}
+#    url: ${url}
+#  jpa:
+#    hibernate:
+#      ddl-auto: update

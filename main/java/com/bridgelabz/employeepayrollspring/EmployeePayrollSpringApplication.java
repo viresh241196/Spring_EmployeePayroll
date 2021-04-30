@@ -11,11 +11,11 @@ public class EmployeePayrollSpringApplication {
 
     public static void main(String[] args)
     {
-//        ApplicationContext context=SpringApplication
-//                .run(EmployeePayrollSpringApplication.class,args);
-        SpringApplication.run(EmployeePayrollSpringApplication.class, args);
-//        log.info("Employee payroll app started",
-//                context.getEnvironment().getProperty("environment"));
+        ApplicationContext context=SpringApplication
+                .run(EmployeePayrollSpringApplication.class,args);
+//        SpringApplication.run(EmployeePayrollSpringApplication.class, args);
+        log.info("Employee payroll app started",
+                context.getEnvironment().getProperty("environment"));
         log.info("Employee payroll application started");
     }
 }
