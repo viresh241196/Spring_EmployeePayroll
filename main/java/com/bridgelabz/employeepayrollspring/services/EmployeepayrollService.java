@@ -9,12 +9,9 @@ import com.bridgelabz.employeepayrollspring.repository.EmployeeRepository;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 
@@ -52,17 +49,14 @@ public class EmployeepayrollService implements IEmployeepayrollService {
 
     @Override
     public Employee createEmployeepayrollData(EmployeepayrollDTO empayrollDTO) {
-        return employeeRepository.save(new Employee(empayrollDTO.getName(), empayrollDTO.getSalary()));
+        System.out.println(empayrollDTO.startDate);
+        return employeeRepository.save(new Employee(empayrollDTO));
     }
 
     @Override
     public Employee updateEmployeepayrollData(int empId, EmployeepayrollDTO empayrollDTO) {
-        ResponseDTO emp = this.getEmployeepayrollDataById(empId);
-        Employee employee = (Employee) emp.getData();
-        employee.setName(empayrollDTO.getName());
-        employee.setSalary(empayrollDTO.getSalary());
-        employeeRepository.save(employee);
-        return null;
+        Employee newEmployee = new Employee(empId,empayrollDTO);
+        return employeeRepository.save(newEmployee);
     }
 
     @Override
